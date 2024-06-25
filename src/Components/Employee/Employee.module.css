@@ -1,0 +1,24 @@
+.header{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.div{
+    width: 40%;
+    height: max-content;
+    margin-left: 30%;
+    background-color: rgb(231, 228, 228);
+    padding: 20px;
+}
+
+h2{
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px
+}
+
+span{
+    text-decoration: underline;
+}

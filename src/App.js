@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Signin from "./Components/Signin/Signin";
+import Admin from "./Components/Admin/Admin";
+import Employee from "./Components/Employee/Employee";
+import { Button } from "react-bootstrap";
+
 
 function App() {
+
+  const [admin, setAdmin] = useState(null);
+
+  const signInHandler = (user) => {
+    setAdmin(user)
+  }
+
+  const adminHandler = () => {
+    setAdmin(null)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div style={{display: 'flex', justifyContent: 'space-evenly', padding: '20px 0', backgroundColor: 'orange'}}>
+        <h1>Kiraj Project</h1>
+        {admin && <Button variant="danger" onClick={adminHandler}>Log Out</Button>}
+      </div>
+      {!admin && <Signin onSignIn={signInHandler} />}
+      {admin==='admin' && <Admin />}
+      {admin==='employee' && <Employee />}
     </div>
   );
 }
